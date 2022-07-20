@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35b97dee-4e41-4e91-a9cd-c6e37bec8dcd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AdminMobile.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PostsAdminMobile.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Admin.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SignIn.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DropComment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DropComment.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +51,7 @@
       <updated>1657613335239</updated>
       <workItem from="1657613341133" duration="11704000" />
       <workItem from="1657719497405" duration="28550000" />
-      <workItem from="1657901260134" duration="4193000" />
+      <workItem from="1657901260134" duration="4641000" />
     </task>
     <servers />
   </component>
