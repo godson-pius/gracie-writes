@@ -10,7 +10,7 @@ const Index = () => {
     return (
         <Routes>
             <Route path='/' exact element={ <Home />} />
-            <Route path='/gracie/:title' element={ <Post /> } />
+            <Route path='/gracie/:id' element={ <Post /> } />
             <Route path='/gracie' element={ <Admin /> } />
             <Route path='/gracie-login' element={ <SignIn /> } />
             <Route path='*' element={ <Error /> } />
