@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35b97dee-4e41-4e91-a9cd-c6e37bec8dcd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,7 +17,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/backend" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -54,7 +53,8 @@
       <workItem from="1657719497405" duration="28550000" />
       <workItem from="1657901260134" duration="4641000" />
       <workItem from="1658315833048" duration="3198000" />
-      <workItem from="1658327154736" duration="879000" />
+      <workItem from="1658327154736" duration="3199000" />
+      <workItem from="1658437359342" duration="713000" />
     </task>
     <servers />
   </component>
