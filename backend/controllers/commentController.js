@@ -30,6 +30,16 @@ const handleGetComments = async (req, res) => {
 
 }
 
+const handleGetCommentCount = async (req, res) => {
+    try {
+        const count = await Comment.find().count()
+        res.status(201).json({count})
+    } catch(e) {
+        res.status(500).json({ error: e.message })
+    }
+
+}
+
 const handleDeleteComment = async (req, res) => {
     const { id } = req.params
 
@@ -64,5 +74,6 @@ module.exports = {
     handleDeleteComment,
     handlePostComment,
     handleGetComments,
-    handleEditComment
+    handleEditComment,
+    handleGetCommentCount
 }

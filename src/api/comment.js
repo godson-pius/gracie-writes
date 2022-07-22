@@ -27,6 +27,16 @@ export const handleGetComments = async (id) => {
     }
 }
 
+export const handleGetCommentCount = async () => {
+    try {
+        const request = await fetch(`${BASE_URL}/api/comment/`)
+        const response = await request.json()
+        return response
+    } catch (error) {
+        return { error: error.message }
+    }
+}
+
 export const handleDeleteComment = async (id) => {
     const options = {
         method: 'delete'
