@@ -16,7 +16,7 @@ const adminSchema = new mongoose.Schema({
     },
     pic: { 
         type: String,
-        default: "http://localhost:7000/img/user.png"
+        default: "https://graciewrite.herokuapp.com/img/pic.jpeg"
     }
 }, { timestamps: true })
 
