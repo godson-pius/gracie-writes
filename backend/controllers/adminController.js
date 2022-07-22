@@ -61,7 +61,17 @@ const handleLogin = async (req, res) => {
     }
 }
 
+const handleFetchAdmins = async (req, res) => {
+    try {
+        const allAdmins = await Admin.find()
+        res.status(200).json(allAdmins)
+    } catch (err) {
+        res.status(500).json({ error: err.message })
+    }
+}
+
 module.exports = {
     handleRegisteration, 
-    handleLogin
+    handleLogin,
+    handleFetchAdmins
 }

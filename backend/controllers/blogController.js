@@ -5,33 +5,34 @@ const { generateAccessToken } = require("../utils/token")
 const path = require("path")
 
 const handleCreateBlogPost = async (req, res) => {
-    const { title, content, category } = req.body
+    const { title, content, image, category } = req.body
 
     // Check for empty values
-    if (!title || !content || !category) {
+    if (!title || !content || !category || !image) {
         res.status(400).json({
-            error: "Title, Content and Category must be provided"
+            error: "Title, Content, Image and Category must be provided"
         })
         return
     }
 
-    // Check if file was sent
-    if (!req.files) {
-        res.status(400).json({
-            error: "Please provide an image file"
-        })
-    }
 
-    const image = req.files?.image
-    const imageName = `${process.env.DOMAIN_NAME_LOCAL}/uploads/${image.name}`
+
+    // Check if file was sent
+    // if (!req.files) {
+    //     res.status(400).json({
+    //         error: "Please provide an image file"
+    //     })
+    // }
+
+    // const image = req.files?.image
+    // const imageName = `${process.env.DOMAIN_NAME_LOCAL}/uploads/${image.name}`
 
     // Move image 
-    image.mv(`./public/uploads/${image.name}`)
+    // image.mv(`./public/uploads/${image.name}`)
 
     try {
         const blogData = {
             ...req.body,
-            image: imageName,
             author: req.user.user._id
         }
 
