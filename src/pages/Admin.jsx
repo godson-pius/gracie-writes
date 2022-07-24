@@ -8,11 +8,13 @@ import { useAuthContext } from '../context/authContext';
 import { useBlogContext } from '../context/blogContext';
 import { DateTime } from "luxon";
 import { toast, ToastContainer } from 'react-toastify';
+import { useCommentContext } from '../context/commentContext';
 
 const Admin = () => {
     const [isLoading, setIsLoading] = useState(false)
     const { admin } = useAuthContext()
     const { blogs, handleDeleteBlogPost } = useBlogContext()
+    const { count } = useCommentContext()
     const navigate = useNavigate()
 
     const handleDelete = async (id) => {
@@ -79,7 +81,7 @@ const Admin = () => {
                                 <p className={'text-sm text-pink-500'}>Number of posts on Gracie</p>
                             </div>
                             <div className={'bg-white shadow h-36 rounded-md p-5 justify-center flex flex-col hover:scale-105 duration-300'}>
-                                <h1 className={'text-3xl font-bold'}>103</h1>
+                                <h1 className={'text-3xl font-bold'}>{ count }</h1>
                                 <p className={'text-sm text-pink-500'}>Number of comments on Gracie</p>
                             </div>
                         </div>
