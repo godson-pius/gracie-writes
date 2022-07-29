@@ -5,15 +5,25 @@ import Blog from "../components/Blog";
 import Contents from "../components/Contents";
 import Pagination from "../components/Pagination";
 import Footer from "../components/Footer";
+import { useBlogContext } from '../context/blogContext';
 
 const Home = () => {
+    const { searchResult, blogs } = useBlogContext()
     return (
         <>
             <Hero />
             <Search />
-            <Blog />
-            <Contents />
-            <Pagination />
+            {
+                searchResult.length ? (
+                    <Contents data={searchResult} />
+                ) : (
+                    <>
+                        <Blog />
+                        <Contents data={blogs} />
+                        <Pagination />
+                    </>
+                )
+            }
             <Footer />
         </>
     )

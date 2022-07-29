@@ -9,11 +9,12 @@ import { useBlogContext } from '../context/blogContext';
 import { DateTime } from "luxon";
 import { toast, ToastContainer } from 'react-toastify';
 import { useCommentContext } from '../context/commentContext';
+import Nav from '../components/Nav';
 
 const Admin = () => {
     const [isLoading, setIsLoading] = useState(false)
     const { admin } = useAuthContext()
-    const { blogs, handleDeleteBlogPost } = useBlogContext()
+    const { blogs, handleDeleteBlogPost, setEdit } = useBlogContext()
     const { count } = useCommentContext()
     const navigate = useNavigate()
 
@@ -41,34 +42,7 @@ const Admin = () => {
         <ToastContainer />
             <div className={'w-full bg-gray-100'}>
                 <div className={'w-full flex items-center'}>
-                    <div className={'bg-gradient-to-t from-purple-500 to-pink-500 w-52 h-screen rounded-r-3xl py-10 px-5 hidden md:block    '}>
-                        <div className={'flex flex-col text-white gap-5'}>
-                            <div className={'flex items-center gap-5'}>
-                                <FiHome />
-                                <Link className={'text-xs md:text-sm font-bold'} to="/">Home</Link>
-                            </div>
-
-                            <div className={'flex items-center gap-5'}>
-                                <FiUploadCloud />
-                                <Link className={'text-xs md:text-sm font-bold'} to="/">Create post</Link>
-                            </div>
-
-                            <div className={'flex items-center gap-5'}>
-                                <FiBookOpen />
-                                <Link className={'text-xs md:text-sm font-bold'} to="/">Posts</Link>
-                            </div>
-
-                            <div className={'flex items-center gap-5'}>
-                                <FiMessageCircle />
-                                <Link className={'text-xs md:text-sm font-bold'} to="/">Comments</Link>
-                            </div>
-
-                            <div className={'flex items-center gap-5'}>
-                                <FiLogOut />
-                                <Link className={'text-xs md:text-sm font-bold'} to="/">Sign out</Link>
-                            </div>
-                        </div>
-                    </div> {/*    End of first grid*/}
+                    <Nav />
 
                     {/* For mobile */}
                     <AdminMobile />
@@ -100,10 +74,10 @@ const Admin = () => {
                                 </thead>
                                 <tbody className="divide-y divide-gray-100">
                                     { 
-                                        blogs && blogs.length ? blogs?.map(blog => (
+                                        blogs.length ? blogs?.map(blog => (
                                             <tr className="bg-white" key={blog._id}>
                                                 <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
-                                                    <a href="#" className="font-bold text-blue-500 hover:underline">{ blog._id }</a>
+                                                    <Link to={`/gracie/${blog._id}`} className="font-bold text-blue-500 hover:underline">{ blog._id }</Link>
                                                 </td>
                                                 <td className="p-3 text-sm text-gray-700 whitespace-nowrap" title={blog.content}>
                                                     { blog.content.substring(0, 30) + "..."  }
@@ -114,13 +88,13 @@ const Admin = () => {
                                                 </td>
                                                 <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{ DateTime.fromISO(blog.createdAt).toFormat('dd LLL yyyy') }</td>
                                                 <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
-                                                    <button onClick={() => {}} disabled={isLoading} className={'cursor-pointer bg-blue-400 p-2 rounded mr-2 text-white hover:bg-blue-500'}>Edit</button>
+                                                    <button onClick={() => navigate(`/edit/${blog._id}`)} disabled={isLoading} className={'cursor-pointer bg-blue-400 p-2 rounded mr-2 text-white hover:bg-blue-500'}>Edit</button>
                                                     <button onClick={() => handleDelete(blog._id)} disabled={isLoading} className={'cursor-pointer bg-pink-400 p-2 rounded hover:bg-pink-500 text-white'}>Delete</button>
                                                 </td>
                                             </tr>
                                         )) : (
                                             <tr>
-                                                <td colspan={5} className="p-3 text-xs text-center text-gray-400">No Blogs Found</td>
+                                                <td colSpan={5} className="p-3 text-xs text-center text-gray-400">No Blogs Found</td>
                                             </tr>
                                         )
                                     }

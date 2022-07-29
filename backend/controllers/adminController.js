@@ -35,14 +35,14 @@ const handleLogin = async (req, res) => {
         const admin = await Admin.findOne({ email })
 
         if(!admin) {
-            res.status(404).json({ message: "no admin found" })
+            res.status(404).json({ error: "no admin found" })
             return
         }
 
         const hashedPassword = admin.password
 
         if(!bcrypt.compareSync(password, hashedPassword)) {
-            res.status(400).json({ message: "Incorrect Password" })
+            res.status(400).json({ error: "Incorrect Password" })
             return
         }
 

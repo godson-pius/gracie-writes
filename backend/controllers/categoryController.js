@@ -17,6 +17,15 @@ const handleCreateCategory = async (req, res) => {
 
 }
 
+const handleGetCategories = async (req, res) => {
+    try {
+        const categories = await Category.find()
+        res.status(200).json(categories)
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+}
+
 const handleDeleteCategory = async (req, res) => {
     const { id } = req.params
 
@@ -29,5 +38,7 @@ const handleDeleteCategory = async (req, res) => {
 }
 
 module.exports = {
-    handleCreateCategory
+    handleCreateCategory,
+    handleGetCategories,
+    handleDeleteCategory
 }

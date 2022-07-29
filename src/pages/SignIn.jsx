@@ -20,7 +20,7 @@ const SignIn = () => {
             setIsLoading(true)
     
             const result = await handleAdminAuth(loginCred)
-            if("error" in result) {
+            if("error" in result || !("token" in result)) {
                 toast.error(result.error)
                 setIsLoading(false)
                 return
