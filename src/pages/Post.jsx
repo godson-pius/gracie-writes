@@ -51,8 +51,8 @@ const Post = () => {
                     {/* Content starts here */}
 
                     <div className={'w-full content text-center md:text-left py-5'}>
-                        <div className={'bg-indigo-400 md:w-full h-80 rounded-md'}>
-                            <img src={blog?.image} className={"w-full h-full"}  />
+                        <div className={'bg-indigo-400 md:w-full lg:h-[400px] rounded-md'}>
+                            <img src={blog?.image} style={{ objectFit: "cover" }} className={"w-full h-full"}  />
                         </div>
                         <p className={'text-md mt-7'}>
                             { blog?.content }

@@ -1,5 +1,3 @@
-const { BASE_URL } = require("./auth")
-
 export const uploadImage = async (file) => {
     const URL = "https://api.cloudinary.com/v1_1/jace-dev/image/upload"
     // const {key} = await getKey()
@@ -14,8 +12,10 @@ export const uploadImage = async (file) => {
     }
 
     try {
-        const image = await fetch(URL, formData)
-        return image
+        const request = await fetch(URL, options)
+        const response = await request.json()
+
+        return response
     } catch (e) {
         return {
             error: true,

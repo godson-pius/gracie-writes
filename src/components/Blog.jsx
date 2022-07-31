@@ -8,7 +8,7 @@ const Blog = () => {
         <>
             <div className={'w-full py-7 md:flex gap-8 items-start px-6 md:px-20'}>
                 <div className={'bg-cyan-300 md:w-[200rem] h-96 rounded-md'}>
-                    { blogs && blogs.length && blogs[0].image  && <img src={blogs[0].image} className="w-full h-full" /> }
+                    { blogs && blogs.length && blogs[0].image  && <img src={blogs[0].image} style={{ objectFit: "cover" }} className="w-full h-full" /> }
                 </div>
                 <div className={'text-left mt-10 md:mt-0'}>
                     <span className={'text-sm text-slate-400'}>{ blogs && blogs.length && blogs[0].content && DateTime.fromISO(blogs && blogs.length && blogs[0].createdAt).toFormat('dd LLL yyyy') || "12pm - July 24, 2020"}</span>

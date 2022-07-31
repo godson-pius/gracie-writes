@@ -7,7 +7,10 @@ import { handleDeleteBlog, handleGetBlogs } from "../api/blog";
 export const BlogContext = createContext()
 
 const BlogContextProvider = ({ children }) => {
-    const [blogs, setBlogs] = useState(null)
+    const [blogs, setBlogs] = useState([])
+    const [search, setSearch] = useState("")
+    const [edit, setEdit] = useState(null)
+    const [searchResult, setSearchResult] = useState([])
 
     const handleGetPosts = async () => {
         const result = await handleGetBlogs()
@@ -15,9 +18,16 @@ const BlogContextProvider = ({ children }) => {
         return result
     }
 
+    const handleSearch = () => {
+        const regrex = new RegExp(search, "i")
+        const result = blogs.filter(blog => blog.title.match(regrex))
+        setSearchResult(result)
+        setSearch("")
+    }
+
     const handleDeleteBlogPost = async (id) => {
         const result = await handleDeleteBlog(id)
-        setBlogs(blogs.filter(blog => blog.id !== id))
+        setBlogs(prev => prev.filter(blog => blog.id !== id))
         return result
     }
 
@@ -26,7 +36,7 @@ const BlogContextProvider = ({ children }) => {
     }, [])
 
     return (
-        <BlogContext.Provider value={{ blogs, handleDeleteBlogPost }}>
+        <BlogContext.Provider value={{ blogs, handleDeleteBlogPost, setBlogs, setSearch, search, searchResult, handleSearch, edit, setEdit }}>
             { children }
         </BlogContext.Provider>
     )

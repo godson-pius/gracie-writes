@@ -31,7 +31,7 @@ export const handleGetCommentCount = async () => {
     try {
         const request = await fetch(`${BASE_URL}/api/comment/`)
         const response = await request.json()
-        return response
+        return response.count
     } catch (error) {
         return { error: error.message }
     }
